@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col m-4">
+    <h1 style="color: #33CC99;">Specialty Management</h1>
+    <form #f="ngForm">
+      <div class="container-fluid p-xl-1">
+        <div class="row">
+          <label class="col-md-1 text-xl mt-2">Specialty: </label>
+          <input type="text" name="specialty_name" class="col-md-3 form-control"
+            [(ngModel)]="selectedSpecialty.specialty_name" required>
+
+          <button type="submit" style="background-color: #33CC99;color: white;" class="btn mx-2"
+            (click)="CreateOrUpdateSpecialty(f)">Create or Update</button><br><br>
+
+          <button style="background-color: #33CC99;color: white;" class="btn" (click)="Clear()">Clear</button>
+          
+          <button style="background-color: #33CC99;color: white;" class="btn" (click)="total()" class="btn mx-2">Total
+            Specialty</button>
+        </div>
+      </div>
+    </form>
+    <br>
+    <div>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>
+              <div class="row align-items-center">
+                <label class="m-2">Specialty ID</label>
+                <input [(ngModel)]="specialty_idFilter" (keyup)="FilterFn()" type="text" class="form-control col-md-3"
+                  placeholder="Filter ID" style="height: 60%;">
+                <button type="button" class="btn btn-light mx-1" (click)="SortResult('specialty_id', true)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z" />
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-light" (click)="SortResult('specialty_id',false)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th>
+
+              <div class="row align-items-center">
+                <label class="m-2">Specialty Name</label>
+                <input [(ngModel)]="specialty_nameFilter" (keyup)="FilterFn()" type="text" class="form-control col-md-3"
+                  style="height: 60%;" placeholder="Filter Name">
+                <button type="button" class="btn btn-light mx-1" (click)="SortResult('specialty_name',true)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z" />
+                  </svg>
+                </button>
+                <button type="button" class="btn btn-light" (click)="SortResult('specialty_name',false)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z" />
+                  </svg>
+                </button>
+              </div>
+
+            </th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let data of selectedSpecialty">
+            <td>{{data.specialty_id}}</td>
+            <td>{{data.specialty_name}}</td>
+
+            <td>
+              <button style="color: white;background-color: #33CC99;" class="btn"
+                (click)="selectSpecialty(data)">Edit</button>
+              <button id="del" class="ml-2 btn btn-danger" (click)="deleteSpecialty(data.specialty_id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

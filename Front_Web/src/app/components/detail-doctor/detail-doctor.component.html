@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          <strong style="color: #33CC99;">Dr. {{dt_name}}</strong>
+          <br>
+          <strong style="color: #33CC99;">Specialty {{selectedDoctor.specialty_name}} </strong>
+          <br>
+
+          <strong style="color: #33CC99;">Email: </strong>
+          <label class="text-grey">{{email}}</label>
+          <br>
+          <strong style="color: #33CC99;">Phone Number: </strong>
+          <label class="text-grey">{{phone_dt}}</label>
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <!-- *ngIf="userData.IsLoggedIn" -->
+      <div class="container">
+        <h1 class="text-center wow fadeInUp">Create Appointment</h1>
+
+        <form class="main-form">
+          <div class="row mt-5 ">
+            <label class="col-12 col-sm-3 mt-4 wow fadeInLeft">Choose Date:</label>
+
+            <div class="col-12 col-sm-9 py-2">
+              <input type="date" name="date_med_exam" [(ngModel)]="date_med_exam" class="form-control">
+            </div>
+
+            <label class="col-12 col-sm-9 py-2 wow fadeInLeft">Noted:</label>
+            <div class="col-12 col-sm-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+              <textarea name="note" [(ngModel)]="note" id="message" class="form-control" rows="6"
+                placeholder="Enter message.."></textarea>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <button type="button" (click)="creatAppointment()" class="btn btn-primary mt-3">Make Appointment</button>
+          </div>
+          <!-- <div *ngIf="!note && appointmentClicked" class="alert alert-danger mt-2">Please enter a note.</div> -->
+        </form>
+      </div>
+
+
+      <!-- *ngIf="!userData.IsLoggedIn" -->
+      <!-- <div class="container">
+        <h1 class="text-center wow fadeInUp mt-5 text-primary">LOG IN TO SCHEDULE MEDICAL EXAMINATION</h1>
+      </div> -->
+    </div>
+
+  </div>
+</div>

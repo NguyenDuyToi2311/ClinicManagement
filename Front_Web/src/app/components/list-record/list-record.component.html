@@ -1,0 +1,36 @@
+<h1 class="text-center text-primary">List Medical Examination Schedule</h1>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table table-striped" width="100%">
+      <thead>
+    
+        <tr>
+          <th style="width: 100px;">ARC ID</th>
+          <th style="width: 200px;">Doctor</th>
+          <th style="width: 200px;">Patient</th>
+          <th style="width: 210px;">Date</th>
+          <th>Symptom</th>
+          <th>Diagnostic</th>
+          <th>Total Amount</th>
+          <th style="width: 250px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of selectedRecord">
+          <td>{{item.medicalrecord_id}}</td>
+          <td>{{item.dt_name}}</td>
+          <td>{{item.patient_name}}</td>
+          <td>{{item.date_med_exam|date:"dd/MM/yy-hh:mm a"}}</td>
+          <td>{{item.symptom}}</td>
+          <td>{{item.diagnostic}}</td>
+          <td>{{item.total_money}}</td>
+          <td>
+            <a type="button" [routerLink]="['/admin/medicalrecord/edit', item.medicalrecord_id]" style="width:100px ;"
+              class="btn btn-primary mx-2">Edit</a>
+            <!-- <button (click)="deleteClick(item)" class="btn btn-danger" style="width:100px">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

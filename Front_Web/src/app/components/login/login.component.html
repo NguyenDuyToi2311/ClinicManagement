@@ -1,0 +1,52 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <h3 class="card-header btn-primary text-center" style="background-color: #33CC99; color: aliceblue;">
+    Login Account
+  </h3>
+
+  <div *ngIf="loginForm.errors?.invalidLogin" class="alert alert-danger mt-3 mb-0">
+    UserName or Password is incorrect.
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="UserName">
+            UserName
+          </label>
+
+          <input type="text" formControlName="UserName" class="form-control" tabindex="1" autofocus
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.UserName.errors }" />
+          <!-- thông báo user -->
+          <div class="invalid-feedback" *ngIf="submitted && loginFormControl.UserName.errors">
+            <div *ngIf="loginFormControl.UserName.errors.required">UserName is required</div>
+          </div>
+          <!-- thông báo user -->
+        </div>
+        <div class="form-group">
+          <label for="Password">Password</label>
+
+          <input type="Password" formControlName="Password" class="form-control" tabindex="2"
+            [ngClass]="{ 'is-invalid': submitted && loginFormControl.Password.errors }" />
+
+          <!-- thông báo cho Password -->
+          <div class="invalid-feedback" *ngIf="submitted && loginFormControl.Password.errors">
+            <div *ngIf="loginFormControl.Password.errors.required">Password is required</div>
+          </div>
+          <!-- thông báo cho Password -->
+        </div>
+        <div class="form-inline">
+          <button class="btn btn-primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+          </button>
+
+          <a class="btn btn-primary ml-lg-3" [routerLink]="['/patient/register']">Register</a>
+
+        </div>
+        <!-- <a href="" (click)="test()">test auth</a> -->
+      </form>
+
+    </div>
+  </div>
+</div>
+<br>

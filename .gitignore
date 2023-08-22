@@ -1,0 +1,11 @@
+# Bỏ qua các tệp tin log
+#*.log
+
+# Bỏ qua thư mục "node_modules"
+#node_modules/
+
+# Bỏ qua tệp tin cấu hình
+#config.ini
+
+# Bỏ qua tệp tin có tên "secret.txt" trong thư mục "docs"
+#docs/secret.txt

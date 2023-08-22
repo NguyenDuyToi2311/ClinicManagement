@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col m-4">
+    <h1 style="color: #33CC99;">Patient Management</h1>
+    <br>
+    <div>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th style="width: 60px;">
+              <label>Option</label>
+            </th>
+            <th style="width: 200px;">
+              <div class="row">
+                <label class="m-2">Patient ID</label>
+
+                <input [(ngModel)]="patient_idFilter" (keyup)="FilterFn()" type="text" class="form-control"
+                  placeholder="Filter ID" style="width: 50%; height: 60%;">
+
+              </div>
+            </th>
+            <th style="width: 420px;">
+
+              <div class="row align-items-center">
+                <label class="m-2">Patient Name</label>
+                <input [(ngModel)]="patient_nameFilter" (keyup)="FilterFn()" type="text" class="form-control"
+                  style="height: 60%;width: 30%;" placeholder="Filter Name">
+
+                <button type="button" class="btn btn-light mx-1" (click)="SortResult('patient_name',true)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 5a.5.5 0 0 0-1 0v4.793L5.354 7.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 9.793V5z" />
+                  </svg>
+                </button>
+
+                <button type="button" class="btn btn-light" (click)="SortResult('patient_name',false)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square-fill"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 8.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z" />
+                  </svg>
+                </button>
+              </div>
+
+            </th>
+            <th>
+              <label for="">Gender</label>
+            </th>
+            <th style="width: 300px;">
+              <div class="row align-items-center">
+                <label class="m-2">Date of Birth</label>
+                <input [(ngModel)]="patient_dobFilter" (keyup)="FilterFn()" type="text" class="form-control"
+                  style="height: 60%;width: 30%;" placeholder="DoB">
+              </div>
+
+            </th>
+
+            <th>
+              <label for="">Phone number</label>
+            </th>
+            <th>
+              <label for="">Address</label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of selectedPatient">
+            <!-- <td><img width="50" height="50" [src]="PhotoFilePath + data.image_pt" [alt]=""></td> -->
+            <td style="width: 60px;"><a [routerLink]="['/admin/patient/edit/', data.patient_id]">Edit</a></td>
+            <td>{{data.patient_id}}</td>
+            <td>{{data.patient_name}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.date_ob | date:'dd-MM-yyyy'}}</td>
+            <td>{{data.phone_pt}}</td>
+            <td>{{data.address}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

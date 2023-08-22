@@ -1,0 +1,63 @@
+<div class="row mt-3"><br>
+  <h3 class="col-md-12 text-center" style="color: #33CC99;">Update Medical Record</h3>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+
+      <div class="col-md-9">
+        <div class="form-group">
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Date</label>
+            <div class="col-sm-9">
+              <input type="date" name="date_med_exam" class="form-control" [(ngModel)]="date_med_exam">
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Symptom</label>
+            <div class="col-sm-9">
+              <textarea name="symptom" class="form-control" [(ngModel)]="symptom" cols="30" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Diagnostic</label>
+            <div class="col-sm-9">
+              <textarea name="diagnostic" class="form-control" [(ngModel)]="diagnostic" cols="30" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Patient</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [(ngModel)]="patient_name" readonly>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Doctor</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [(ngModel)]="dt_name" readonly>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Total Amount</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [(ngModel)]="total_money" readonly>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button (click)="editRecord()" class="ml-1 mt-3 btn btn-primary mb-5">
+                Re-Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

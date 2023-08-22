@@ -1,0 +1,35 @@
+<h1 class="text-center text-primary">List Medical Examination Schedule</h1>
+<div class="container-fluid">
+  <div class="col-md-12">
+    <table class="table table-striped" width="100%">
+      <thead>
+        <tr>
+          <th style="width: 150px;">Appoitment ID</th>
+          <th style="width: 200px;">Doctor</th>
+          <th style="width: 200px;">Patient</th>
+          <th style="width: 210px;">Date</th>
+          <th style="width: 150px;">Clinic</th>
+          <th>Note</th>
+          <th >Status</th>
+          <th style="width: 250px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ListAppoint">
+          <td>{{item.apm_id}}</td>
+          <td>{{item.dt_name}}</td>
+          <td>{{item.patient_name}}</td>
+          <td>{{item.date_med_exam|date:"dd/MM/yy-hh:mm a"}}</td>
+          <td>{{item.clinic}}</td>
+          <td>{{item.status}}</td>
+          <td>{{item.note}}</td>
+          <td>
+            <a type="button" [routerLink]="['/admin/appointment/edit', item.apm_id]" style="width:100px ;"
+              class="btn btn-primary mx-2">Edit</a>
+            <button (click)="deleteClick(item)" class="btn btn-danger" style="width:100px">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

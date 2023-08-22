@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          Full name: {{patient_name}}
+          <br>
+          Gender: {{gender}}
+          <br>
+          DoB: {{date_ob|date}}
+          <br>
+          Phone: {{phone_pt}}
+          <br>
+          Address: {{address}}
+        </li>
+
+
+        <li class="list-group-item">
+          <a [routerLink]="['/patient']">Pending</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/patient/waiting']">Waiting Examination</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/patient/finish']">Finished Examination</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/patient/list-medicalrecord']">Appointment</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <ng-container *ngIf="finishmed && finishmed.length > 0; else noAppointments">
+        <div class="row" *ngFor="let item of finishmed" style="border: 1px rgb(17, 173, 179); border-radius: 3px;">
+          <div class="col-md-2">
+            <img width="100px" height="100px" src="{{PhotoFilePath + item.image_dt}}" />
+          </div>
+          <div class="col-md-6">
+            <h4>Doctor Name: {{item.dt_name}}</h4>
+            <p>Specialty: {{item.specialty_name}}</p>
+            <p>Phone: {{item.phone_dt}}</p>
+            <p>Date of Med: {{item.date_med_exam|date:'medium'}}</p>
+            <p>Note: {{item.note}}</p>
+
+          </div>
+          <div class="col-md-4">
+            <a type="button" class="btn btn-primary mt-2" target="_blank" href="#" style="width: 100%;">Record</a>
+            <!-- <button class="btn btn-danger mt-2" (click)="cancel()" style="width: 100%;">Cancel</button> -->
+            <!-- <button class="btn btn-danger mt-2" (click)="cancel(item.apm_id)" style="width: 100%;">Hủy</button> -->
+          </div>
+
+        </div>
+      </ng-container>
+      <ng-template #noAppointments>
+        <div class="col-md-12">
+          <h3>There are currently no appointments available.</h3>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>
+</div>

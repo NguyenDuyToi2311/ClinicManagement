@@ -1,0 +1,63 @@
+<div class="row mt-3"><br>
+  <h3 class="col-md-12 text-center" style="color: #33CC99;">MEDICAL RECORD</h3>
+</div>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-9">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="form-group">
+
+          <div class="row mt-2">
+            <label class="col-sm-1 col-form-label">Patient ID</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" [(ngModel)]="patient_id" name="patient_id" readonly>
+            </div>
+            <label class="col-sm-1 col-form-label">Patient Name</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" [(ngModel)]="patient_name" name="patient_name" readonly>
+            </div>
+
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-1 col-form-label">Doctor ID</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" [(ngModel)]="dt_id" name="dt_id" readonly>
+            </div>
+            <label class="col-sm-1 col-form-label">Doctor Name</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" [(ngModel)]="dt_name" name="dt_name" readonly>
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <label class="col-sm-1 col-form-label">Symptom</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="symptom">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-1 col-form-label">Diagnostic</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="diagnostic">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-2 col-form-label">Total Amount</label>
+            <div class="col-sm-5">
+              <input type="number" class="form-control" inputmode="numeric" [(ngModel)]="total_money">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mt-2">
+              <button class="ml-1 btn btn-primary mb-5" (click)="makeMedrecord()">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

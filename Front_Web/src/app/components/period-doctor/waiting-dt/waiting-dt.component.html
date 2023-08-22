@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="card-doctor">
+            <div class="header" style="width:100%">
+              <img src="{{PhotoFilePath}}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item">
+          Dr. {{dt_name}}
+          <br>
+          Specialty: {{specialty_name}}
+          <br>
+          Email: {{email}}
+          <br>
+          Phone: {{phone_dt}}
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/profile-doctor']">Pending</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/doctor/waiting']">Waiting Examination</a>
+        </li>
+        <li class="list-group-item">
+          <a [routerLink]="['/doctor/finish']">Finished Examination</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col md-8">
+      <ng-container *ngIf="waiting && waiting.length > 0 ; else noAppointments">
+        <div class="row" *ngFor="let item of waiting" style="border: 1px rgb(17, 173, 179); border-radius: 3px;">
+          <div class="col-md-2">
+            <img width="100px" height="100px" src="{{PhotoFilePath + item.image_dt}}" />
+          </div>
+          <div class="col-md-7">
+            <h3>Patient: {{item.patient_name}}</h3>
+            <p>DoB: {{item.date_ob|date}}</p>
+            <p>Phone: {{item.phone_pt}}</p>
+            <p>Date Examination: {{item.date_med_exam|date:'medium'}}</p>
+            <p>Note: {{item.note}}</p>
+
+          </div>
+          <div class="col-md-3">
+
+            <a type="button" class="btn btn-primary " href="" style="width:100%" target="_blank">Examination</a>
+            <button type="button" (click)="refuse(item.apm_id)" class="btn btn-danger mt-2" style="width:100%">Refuse </button>
+            <button type="button" (click)="recordAppointment(item)" class="btn btn-primary mt-2" style="width:100%">Create Record</button>
+          </div>
+
+        </div>
+      </ng-container>
+      <ng-template #noAppointments>
+        <div class="col-md-12">
+          <h3>There are currently no appointments available.</h3>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>

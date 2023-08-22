@@ -1,0 +1,72 @@
+<div class="d-flex flex-row mt-3"><br>
+  <br>
+  <h3 class="col-md-12 text-center" style="color: #33CC99;">Create Doctor</h3>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+
+      <div class="col-md-9">
+        <div class="form-group">
+
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Doctor Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [(ngModel)]="dt_name" placeholder="Full Name...">
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Specialty</label>
+            <div class="col-sm-9">
+              
+              <select class="form-control" [(ngModel)]="specialty_id">
+                
+                <option *ngFor="let item of selectedSpecialty" [value]="item.specialty_id">
+                  {{item.specialty_name}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Phone Number</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [(ngModel)]="phone_dt" placeholder="Number...">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" [(ngModel)]="email" placeholder="Email...">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <label class="col-sm-3 text-xl col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" [(ngModel)]="password">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button (click)="createDoctor()" class="ml-1 mt-4 btn btn-primary mb-5">Create Doctor</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          <div class="ml-3 bd-highlight" style="width: 40%;">
+            <img [src]="PhotoFilePath" height="250px;" width="200px;">
+            <input type="file" (change)="uploadPhoto($event)" class="mt-2" />
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
